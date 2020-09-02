@@ -1,54 +1,54 @@
 import { ProxyState } from "../AppState.js";
-import _myPokemonServ from "../Services/MyPokemonService.js";
+import MyPokemonService from "../Services/MyPokemonService.js";
 
-function _drawActiveSpell() {
-  let elem = document.getElementById("active-spell")
+function _drawActivePokemon() {
+  let elem = document.getElementById("active-pokemon")
   if (ProxyState.activeSpell) {
-    elem.innerHTML = ProxyState.activeSpell.Template
+    elem.innerHTML = ProxyState.activePokemon.Template
   } else {
     elem.innerHTML = ""
   }
 
 }
 
-function _drawMySpells() {
-  let spells = ProxyState.mySpells
+function _drawMyPokemon() {
+  let pokemon = ProxyState.myPokemon
   let template = ''
-  spells.forEach(s => template += `<li onclick="app.mySpellsController.setActive('${s.id}')">${s.name}</li>`)
-  document.getElementById('my-spells').innerHTML = template
+  pokemon.forEach(p => template += `<li onclick="app.myPokemonController.setActive('${p.id}')">${p.name}</li>`)
+  document.getElementById('my-pokemon').innerHTML = template
 }
 
-export default class MySpellsController {
+export default class MyPokemonController {
   constructor() {
     // SUBSCRIBE
-    ProxyState.on("activeSpell", _drawActiveSpell)
-    ProxyState.on("mySpells", _drawMySpells)
+    ProxyState.on("activePokemon", _drawActivePokemon)
+    ProxyState.on("myPokemon", _drawMyPokemon)
     // GET DATA
-    this.getMySpells();
+    this.getMyPokemon();
   }
-  getMySpells() {
+  getMyPokemon() {
     try {
-      mySpellsService.getMySpells();
+      MyPokemonService.getMyPokemon();
     } catch (error) {
       console.error(error)
     }
   }
 
   setActive(id) {
-    mySpellsService.setActive(id)
+    MyPokemonService.setActive(id)
   }
 
-  addSpell() {
+  addPokemon() {
     try {
-      mySpellsService.addSpell()
+      MyPokemonService.addPokemon()
     } catch (error) {
       console.error(error)
     }
   }
 
-  removeSpell() {
+  removePokemon() {
     try {
-      mySpellsService.removeSpell()
+      MyPokemonService.removePokemon()
     } catch (error) {
       console.error(error)
     }

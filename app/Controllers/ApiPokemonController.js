@@ -1,24 +1,24 @@
 import { ProxyState } from "../AppState.js";
-import _apiPokemonServ from "../Services/ApiPokemonService.js";
+import apiPokemonService from "../Services/ApiPokemonService.js";
 
-function _drawApiSpells() {
-  let spells = ProxyState.apiSpells
+function _drawApiPokemon() {
+  let pokemon = ProxyState.apiPokemon
   let template = ''
-  spells.forEach(s => template += `<li onclick="app.apiSpellsController.getDetails('${s.index}')">${s.name}</li>`)
-  document.getElementById('api-spells').innerHTML = template
+  pokemon.forEach(p => template += `<li onclick="app.apiPokemonController.getDetails('${p.index}')">${p.name}</li>`)
+  document.getElementById('api-pokemon').innerHTML = template
 }
 
-export default class ApiSpellsController {
+export default class ApiPokemonController {
   constructor() {
     // SUBSCRIBE
-    ProxyState.on("apiSpells", _drawApiSpells)
+    ProxyState.on("apipokemon", _drawApiPokemon)
     // GET THE DATA
-    this.getAllApiSpells()
+    this.getAllApiPokemon()
   }
 
-  getAllApiSpells() {
+  getAllApiPokemon() {
     try {
-      apiSpellsService.getAll()
+      apiPokemonService.getAll()
     } catch (error) {
       console.error(error)
     }
@@ -26,7 +26,7 @@ export default class ApiSpellsController {
 
   getDetails(index) {
     try {
-      apiSpellsService.getDetails(index)
+      apiPokemonService.getDetails(index)
     } catch (error) {
       console.error(error)
     }

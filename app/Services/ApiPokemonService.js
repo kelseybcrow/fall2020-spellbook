@@ -3,17 +3,17 @@ import Pokemon from "../Models/Pokemon.js"
 import { PokemonApi } from "./AxiosSerivce.js"
 
 
-class ApiSpellsService {
+class ApiPokemonService {
   async getAll() {
-    let res = await dndApi.get('')
-    ProxyState.apiSpells = res.data.results
+    let res = await pokemonApi.get('')
+    ProxyState.apiPokemon = res.data.results
   }
   async getDetails(index) {
-    let res = await dndApi.get(index)
-    ProxyState.activeSpell = new Spell(res.data)
+    let res = await PokemonApi.get(index)
+    ProxyState.activePokemon = new Pokemon(res.data)
   }
 
 }
 
-const apiSpellsService = new ApiSpellsService()
-export default apiSpellsService
+const apiPokemonService = new ApiPokemonService()
+export default apiPokemonService
