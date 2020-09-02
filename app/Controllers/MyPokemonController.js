@@ -1,5 +1,5 @@
 import { ProxyState } from "../AppState.js";
-import myPokemonService from "../Services/MyPokemonService.js";
+import _myPokemonServ from "../Services/MyPokemonService.js";
 
 function _drawActiveSpell() {
   let elem = document.getElementById("active-spell")

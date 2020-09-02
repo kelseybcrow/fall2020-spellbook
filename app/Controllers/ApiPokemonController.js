@@ -1,5 +1,5 @@
 import { ProxyState } from "../AppState.js";
-import apiPokemonService from "../Services/ApiPokemonService.js";
+import _apiPokemonServ from "../Services/ApiPokemonService.js";
 
 function _drawApiSpells() {
   let spells = ProxyState.apiSpells

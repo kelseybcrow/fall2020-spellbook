@@ -1,13 +1,12 @@
-
-import Spell from "./Models/Pokemon.js"
+import Pokemon from "./Models/Pokemon.js"
 import { EventEmitter } from "./Utils/EventEmitter.js"
 import { isValidProp } from "./Utils/isValidProp.js"
 
 class AppState extends EventEmitter {
   apiSpells = []
-  /**@type {Spell[]} */
+  /**@type {Pokemon[]} */
   mySpells = []
-  /**@type {Spell} */
+  /**@type {Pokemon} */
   activeSpell = null
 
 }

@@ -1,6 +1,6 @@
 import { ProxyState } from "../AppState.js"
 import Pokemon from "../Models/Pokemon.js"
-import { pokemonApi } from "./AxiosSerivce.js"
+import { PokemonApi } from "./AxiosSerivce.js"
 
 
 class ApiSpellsService {

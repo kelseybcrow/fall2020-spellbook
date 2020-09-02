@@ -1,5 +1,5 @@
-import ApiSpellsController from "./Controllers/ApiPokemonController.js";
-import MySpellsController from "./Controllers/MyPokemonController.js";
+import ApiPokemonController from "./Controllers/ApiPokemonController.js";
+import MyPokemonController from "./Controllers/MyPokemonController.js";
 
 class App {
   apiPokemonController = new ApiPokemonController()
