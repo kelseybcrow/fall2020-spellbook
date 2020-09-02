@@ -1,4 +1,4 @@
-export default class Spell {
+export default class Poki {
   constructor({ _id = "", name, components, description, range, duration, desc }) {
     this.id = _id
     this.name = name

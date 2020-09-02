@@ -1,5 +1,5 @@
 
-import Spell from "./Models/Spell.js"
+import Spell from "./Models/Pokemon.js"
 import { EventEmitter } from "./Utils/EventEmitter.js"
 import { isValidProp } from "./Utils/isValidProp.js"
 

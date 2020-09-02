@@ -1,9 +1,9 @@
-import ApiSpellsController from "./Controllers/ApiSpellsController.js";
-import MySpellsController from "./Controllers/MySpellsController.js";
+import ApiSpellsController from "./Controllers/ApiPokemonController.js";
+import MySpellsController from "./Controllers/MyPokemonController.js";
 
 class App {
-  apiSpellsController = new ApiSpellsController()
-  mySpellsController = new MySpellsController()
+  apiPokemonController = new ApiPokemonController()
+  myPokemonController = new MyPokemonController()
 }
 
 window["app"] = new App();
