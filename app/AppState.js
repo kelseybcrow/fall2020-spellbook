@@ -3,11 +3,11 @@ import { EventEmitter } from "./Utils/EventEmitter.js"
 import { isValidProp } from "./Utils/isValidProp.js"
 
 class AppState extends EventEmitter {
-  apiSpells = []
+  apiPokemon = []
   /**@type {Pokemon[]} */
-  mySpells = []
+  myPokemon = []
   /**@type {Pokemon} */
-  activeSpell = null
+  activePokemon = null
 
 }
 

@@ -1,5 +1,5 @@
 export const pokemonApi = axios.create({
-  baseURL: "https://pokeapi.co/api/v2/pokemon?limit=1050",
+  baseURL: "https://pokeapi.co/api/v2/pokemon?limit=30",
   timeout: 10000
 })
 

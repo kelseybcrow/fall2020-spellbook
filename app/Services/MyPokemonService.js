@@ -2,29 +2,27 @@ import { ProxyState } from "../AppState.js"
 import Pokemon from "../Models/Pokemon.js"
 import { mypokemonApi } from "./AxiosSerivce.js"
 
-class MySpellsService {
+class MyPokemonService {
   setActive(id) {
-    ProxyState.activeSpell = ProxyState.mySpells.find(s => s.id == id)
+    ProxyState.activePokemon = ProxyState.myPokemon.find(s => s.id == id)
 
   }
-  async getMySpells() {
+  async getMyPokemon() {
     let res = await sandboxApi.get('')
-    ProxyState.mySpells = res.data.data.map(s => new Spell(s))
+    ProxyState.myPokemon = res.data.data.map(s => new Pokemon(s))
   }
-  async addSpell() {
-    let res = await sandboxApi.post('', ProxyState.activeSpell)
-    // ProxyState.mySpells.push(res.data.data)
-    // ProxyState.mySpells = ProxyState.mySpells
-    ProxyState.mySpells = [...ProxyState.mySpells, new Spell(res.data.data)]
+  async addPokemon() {
+    let res = await mypokemonApi.post('', ProxyState.activeSpell)
+    ProxyState.myPokemon = [...ProxyState.myPokemon, new Pokemon(res.data.data)]
   }
-  async removeSpell() {
-    await sandboxApi.delete(ProxyState.activeSpell.id)
-    ProxyState.mySpells = ProxyState.mySpells.filter(s => s.id != ProxyState.activeSpell.id)
-    ProxyState.activeSpell = null
+  async removePokemon() {
+    await mypokemonApi.delete(ProxyState.activePokemon.id)
+    ProxyState.myPokemon = ProxyState.myPokemon.filter(p => p.id != ProxyState.activePokemon.id)
+    ProxyState.activePokemon = null
 
   }
 
 }
 
-const mySpellsService = new MySpellsService()
-export default mySpellsService
+const myPokemonService = new MyPokemonService()
+export default myPokemonService

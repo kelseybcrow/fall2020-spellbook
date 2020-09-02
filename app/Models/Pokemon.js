@@ -1,11 +1,9 @@
 export default class Pokemon {
-  constructor({ _id = "", name, components, description, range, duration, desc }) {
+  constructor({ _id = "", name, height, description, desc }) {
     this.id = _id
     this.name = name
-    this.components = components
+    this.height = height
     this.description = description || desc
-    this.range = range
-    this.duration = duration
 
     if (Array.isArray(this.description)) {
       this.description = this.description.join('\n')
@@ -17,9 +15,7 @@ export default class Pokemon {
     return `
     <div class="card-body">
       <h4 class="card-title">${this.name}</h4>
-      <p class="card-text">Components: ${this.components}</p>
-      <p class="card-text">Range: ${this.range}</p>
-      <p class="card-text">Duration: ${this.duration}</p>
+      <p class="card-text">Components: ${this.height}</p>
       <p class="card-text">${this.description}</p>
       ${this.Button}
     </div>
@@ -27,9 +23,9 @@ export default class Pokemon {
   }
   get Button() {
     if (this.id) {
-      return `<button onclick="app.mySpellsController.removeSpell()" class="btn btn-danger">Remove</button>`
+      return `<button onclick="app.myPokemonController.removePokemon()" class="btn btn-danger">Remove Pokemon</button>`
     }
-    return `<button onclick="app.mySpellsController.addSpell()" class="btn btn-success">Add Spell</button>`
+    return `<button onclick="app.myPokemonController.addPokemon()" class="btn btn-success">Add Pokemon</button>`
   }
 }
 
