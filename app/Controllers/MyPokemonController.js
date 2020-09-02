@@ -1,9 +1,9 @@
 import { ProxyState } from "../AppState.js";
-import MyPokemonService from "../Services/MyPokemonService.js";
+import myPokemonService from "../Services/MyPokemonService.js";
 
 function _drawActivePokemon() {
   let elem = document.getElementById("active-pokemon")
-  if (ProxyState.activeSpell) {
+  if (ProxyState.activePokemon) {
     elem.innerHTML = ProxyState.activePokemon.Template
   } else {
     elem.innerHTML = ""
@@ -28,19 +28,19 @@ export default class MyPokemonController {
   }
   getMyPokemon() {
     try {
-      MyPokemonService.getMyPokemon();
+      myPokemonService.getMyPokemon();
     } catch (error) {
       console.error(error)
     }
   }
 
   setActive(id) {
-    MyPokemonService.setActive(id)
+    myPokemonService.setActive(id)
   }
 
   addPokemon() {
     try {
-      MyPokemonService.addPokemon()
+      myPokemonService.addPokemon()
     } catch (error) {
       console.error(error)
     }
@@ -48,7 +48,7 @@ export default class MyPokemonController {
 
   removePokemon() {
     try {
-      MyPokemonService.removePokemon()
+      myPokemonService.removePokemon()
     } catch (error) {
       console.error(error)
     }

@@ -1,9 +1,9 @@
 export default class Pokemon {
-  constructor({ _id = "", name, height, description, desc }) {
+  constructor({ _id = "", name, height, img="//placehold.it/200x200" }) {
     this.id = _id
     this.name = name
     this.height = height
-    this.description = description || desc
+    this.img = img
 
     if (Array.isArray(this.description)) {
       this.description = this.description.join('\n')

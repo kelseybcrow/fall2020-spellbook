@@ -1,19 +1,19 @@
 import { ProxyState } from "../AppState.js"
 import Pokemon from "../Models/Pokemon.js"
-import { PokemonApi } from "./AxiosSerivce.js"
+import { pokemonApi } from "./AxiosService.js"
 
 
-class ApiPokemonService {
+class PokemonApiService {
   async getAll() {
-    let res = await pokemonApi.get('')
+    let res = await pokemonApi.get('/pokemon?limit=30')
     ProxyState.apiPokemon = res.data.results
   }
-  async getDetails(index) {
-    let res = await PokemonApi.get(index)
+  async getDetails(name) {
+    let res = await pokemonApi.get(`pokemon/${name}`)
     ProxyState.activePokemon = new Pokemon(res.data)
   }
 
 }
 
-const apiPokemonService = new ApiPokemonService()
-export default apiPokemonService
+const pokemonApiService = new PokemonApiService()
+export default pokemonApiService
